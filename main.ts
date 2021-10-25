@@ -5,7 +5,7 @@ myCorg.updateSprite()
 pause(500)
 game.splash("good morning press arrows to move ")
 myCorg.horizontalMovement()
-pause(10000)
+pause(5000)
 game.splash("Come to the bone")
 let mySprite = sprites.create(img`
     . . . . . . . . . . . . . . . . 
@@ -26,3 +26,4 @@ let mySprite = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     `, SpriteKind.Player)
 mySprite.setPosition(128, 105)
+info.setScore(0)
