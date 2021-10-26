@@ -2,6 +2,9 @@ namespace SpriteKind {
     export const food2 = SpriteKind.create()
     export const food3 = SpriteKind.create()
 }
+sprites.onOverlap(SpriteKind.Player, SpriteKind.food3, function (sprite, otherSprite) {
+    mySprite3.destroy(effects.spray, 500)
+})
 sprites.onOverlap(SpriteKind.Player, SpriteKind.food2, function (sprite, otherSprite) {
     mySprite3 = sprites.create(img`
         . . . . . . . . . . . . . . . . 
@@ -22,11 +25,11 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.food2, function (sprite, otherSp
         . . . . . . . . . . . . . . . . 
         `, SpriteKind.food3)
     mySprite3.setPosition(73, 68)
-    mySprite2.destroy()
+    mySprite2.destroy(effects.spray, 500)
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
     info.changeScoreBy(1)
-    mySprite.destroy()
+    mySprite.destroy(effects.spray, 500)
     game.splash("YAY! You now leveled up press up to jump.")
     myCorg.verticalMovement(true)
     mySprite2 = sprites.create(img`
