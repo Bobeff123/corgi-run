@@ -21,26 +21,8 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.food2, function (sprite, otherSp
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
         `, SpriteKind.food3)
-    mySprite3.setPosition(69, 59)
+    mySprite3.setPosition(73, 68)
     mySprite2.destroy()
-    mySprite4 = sprites.create(img`
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . 5 5 5 . . f d . . . 
-        . . . . . . f 4 f . . f . d . . 
-        . . . . . . 4 4 4 . . f d . d . 
-        . . . . . 5 5 2 5 5 . f . d . . 
-        . . . . 4 2 2 2 2 2 4 f d . . . 
-        . . . . . 5 2 2 2 5 . . . . . . 
-        . . . . . . 2 2 2 . . . . . . . 
-        . . . . . . 2 2 2 . . . . . . . 
-        . . . . . . 2 . 2 . . . . . . . 
-        . . . . . . 2 . 2 . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        `, SpriteKind.Enemy)
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
     info.changeScoreBy(1)
@@ -67,7 +49,6 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSpr
         `, SpriteKind.food2)
     mySprite2.setPosition(74, 95)
 })
-let mySprite4: Sprite = null
 let mySprite2: Sprite = null
 let mySprite3: Sprite = null
 let mySprite: Sprite = null
