@@ -1,6 +1,7 @@
 namespace SpriteKind {
     export const food2 = SpriteKind.create()
     export const food3 = SpriteKind.create()
+    export const bomb = SpriteKind.create()
 }
 sprites.onOverlap(SpriteKind.Player, SpriteKind.food3, function (sprite, otherSprite) {
     info.changeScoreBy(1)
@@ -26,6 +27,31 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.food3, function (sprite, otherSp
     myEnemy.setPosition(99, 115)
     myEnemy.setVelocity(50, 0)
     myEnemy.setBounceOnWall(true)
+    mySprite4 = sprites.create(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . 7 . . . 7 . . . . . . 
+        . . . . . 7 7 . . 7 . . . . . . 
+        . . . . . . . . . 7 . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . 7 . . . . . . . . . . . . 
+        . . . 7 7 . . . . . . . . 7 . . 
+        . . . . . 7 . . . . . . 7 . . . 
+        . . . . . 7 7 7 7 7 7 7 . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `, SpriteKind.bomb)
+    mySprite4.setPosition(134, 80)
+})
+sprites.onOverlap(SpriteKind.Player, SpriteKind.bomb, function (sprite, otherSprite) {
+    myEnemy.destroy(effects.smiles, 500)
+    mySprite4.destroy(effects.smiles, 500)
+    pause(1000)
+    game.over(true, effects.confetti)
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.food2, function (sprite2, otherSprite2) {
     info.changeScoreBy(1)
@@ -79,6 +105,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
     game.over(false)
 })
 let mySprite2: Sprite = null
+let mySprite4: Sprite = null
 let myEnemy: Sprite = null
 let mySprite3: Sprite = null
 let mySprite: Sprite = null
@@ -86,6 +113,7 @@ let myCorg: Corgio = null
 myCorg = corgio.create(SpriteKind.Player)
 pause(1000)
 game.splash("Hey, WAKE UP!")
+myCorg.sayText(":)")
 myCorg.updateSprite(true)
 pause(500)
 game.splash("good morning press arrows to move ")
