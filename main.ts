@@ -48,8 +48,11 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.food3, function (sprite, otherSp
     mySprite4.setPosition(134, 80)
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.bomb, function (sprite, otherSprite) {
-    myEnemy.destroy(effects.smiles, 500)
+    mySprite4.follow(myEnemy)
+})
+sprites.onOverlap(SpriteKind.bomb, SpriteKind.Enemy, function (sprite, otherSprite) {
     mySprite4.destroy(effects.smiles, 500)
+    myEnemy.destroy(effects.smiles, 500)
     pause(1000)
     game.over(true, effects.confetti)
 })
