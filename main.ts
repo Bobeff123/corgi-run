@@ -54,7 +54,7 @@ sprites.onOverlap(SpriteKind.bomb, SpriteKind.Enemy, function (sprite, otherSpri
     mySprite4.destroy(effects.smiles, 500)
     myEnemy.destroy(effects.smiles, 500)
     pause(1000)
-    game.over(true, effects.confetti)
+    effects.confetti.startScreenEffect(500)
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.food2, function (sprite2, otherSprite2) {
     info.changeScoreBy(1)
@@ -113,6 +113,7 @@ let myEnemy: Sprite = null
 let mySprite3: Sprite = null
 let mySprite: Sprite = null
 let myCorg: Corgio = null
+let Music = 0
 game.splash("(Level 1)")
 myCorg = corgio.create(SpriteKind.Player)
 scene.setBackgroundImage(img`
@@ -239,6 +240,7 @@ scene.setBackgroundImage(img`
     `)
 pause(1000)
 game.splash("Hey, WAKE UP!")
+Music += 1
 myCorg.updateSprite(true)
 pause(500)
 game.splash("good morning press arrows to move ")
@@ -265,3 +267,8 @@ mySprite = sprites.create(img`
     `, SpriteKind.Food)
 mySprite.setPosition(132, 114)
 info.setScore(0)
+forever(function () {
+    while (Music == 1) {
+        music.playMelody("C5 B C5 B A G A B ", 120)
+    }
+})
