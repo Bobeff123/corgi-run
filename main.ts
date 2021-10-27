@@ -113,7 +113,6 @@ let myCorg: Corgio = null
 myCorg = corgio.create(SpriteKind.Player)
 pause(1000)
 game.splash("Hey, WAKE UP!")
-myCorg.sayText(":)")
 myCorg.updateSprite(true)
 pause(500)
 game.splash("good morning press arrows to move ")
