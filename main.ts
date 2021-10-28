@@ -54,6 +54,7 @@ sprites.onOverlap(SpriteKind.bomb, SpriteKind.Enemy, function (sprite, otherSpri
     mySprite4.destroy(effects.smiles, 500)
     myEnemy.destroy(effects.smiles, 500)
     pause(1000)
+    game.over(true, effects.confetti)
     effects.confetti.startScreenEffect(500)
     game.splash("Level 2")
 })
