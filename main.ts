@@ -55,6 +55,7 @@ sprites.onOverlap(SpriteKind.bomb, SpriteKind.Enemy, function (sprite, otherSpri
     myEnemy.destroy(effects.smiles, 500)
     pause(1000)
     effects.confetti.startScreenEffect(500)
+    game.splash("Level 2")
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.food2, function (sprite2, otherSprite2) {
     info.changeScoreBy(1)
@@ -114,7 +115,7 @@ let mySprite3: Sprite = null
 let mySprite: Sprite = null
 let myCorg: Corgio = null
 let Music = 0
-game.splash("(Level 1)")
+game.splash("Level 1")
 myCorg = corgio.create(SpriteKind.Player)
 scene.setBackgroundImage(img`
     3333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333
