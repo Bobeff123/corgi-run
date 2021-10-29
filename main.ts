@@ -24,7 +24,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.food3, function (sprite, otherSp
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
-        `, SpriteKind.Player)
+        `, SpriteKind.Enemy)
     animation.runImageAnimation(
     myEnemy,
     [img`
@@ -88,10 +88,16 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.food3, function (sprite, otherSp
         `, SpriteKind.bomb)
     mySprite4.setPosition(134, 80)
 })
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Food4, function (sprite, otherSprite) {
+    info.changeScoreBy(1)
+    mySprite5.destroy()
+    game.over(true, effects.confetti)
+})
 sprites.onOverlap(SpriteKind.Player, SpriteKind.bomb, function (sprite, otherSprite) {
     mySprite4.follow(myEnemy)
 })
 sprites.onOverlap(SpriteKind.bomb, SpriteKind.Enemy, function (sprite, otherSprite) {
+    info.changeScoreBy(1)
     mySprite4.destroy(effects.smiles, 500)
     myEnemy.destroy(effects.smiles, 500)
     pause(1000)
