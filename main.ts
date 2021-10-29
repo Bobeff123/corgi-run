@@ -2,28 +2,11 @@ namespace SpriteKind {
     export const food2 = SpriteKind.create()
     export const food3 = SpriteKind.create()
     export const bomb = SpriteKind.create()
+    export const Food4 = SpriteKind.create()
 }
 sprites.onOverlap(SpriteKind.Player, SpriteKind.food3, function (sprite, otherSprite) {
     info.changeScoreBy(1)
     mySprite3.destroy(effects.spray, 500)
-    myEnemy = sprites.create(img`
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . 2 . . . . 2 . . . . . 
-        . . . . . 2 . . . . . 2 . . . . 
-        . . . . . . . . . . . 2 . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . 2 2 . . . . . . . 
-        . . . . 2 2 2 . . 2 2 . . . . . 
-        . . . . 2 . . . . . 2 . . . . . 
-        . . . 2 2 . . . . . . 2 . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        `, SpriteKind.Enemy)
     myEnemy.setPosition(99, 115)
     myEnemy.setVelocity(50, 0)
     myEnemy.setBounceOnWall(true)
@@ -54,9 +37,29 @@ sprites.onOverlap(SpriteKind.bomb, SpriteKind.Enemy, function (sprite, otherSpri
     mySprite4.destroy(effects.smiles, 500)
     myEnemy.destroy(effects.smiles, 500)
     pause(1000)
-    game.over(true, effects.confetti)
     effects.confetti.startScreenEffect(500)
-    game.splash("Level 2")
+    game.splash("Level 2", "The expansion")
+    myCorg.follow()
+    game.splash("The expansion of the world has come.")
+    mySprite5 = sprites.create(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . 1 1 1 . . . . . . . . . 1 1 1 
+        . 1 1 1 . . . . . . . . . 1 1 1 
+        . 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+        . . . . 1 1 1 1 1 1 1 1 1 . . . 
+        . 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+        . 1 1 1 . . . . . . . . . 1 1 1 
+        . 1 1 1 . . . . . . . . . 1 1 1 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `, SpriteKind.Food4)
+    mySprite5.setPosition(170, 115)
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.food2, function (sprite2, otherSprite2) {
     info.changeScoreBy(1)
@@ -110,13 +113,14 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
     game.over(false)
 })
 let mySprite2: Sprite = null
+let mySprite5: Sprite = null
 let mySprite4: Sprite = null
 let myEnemy: Sprite = null
 let mySprite3: Sprite = null
 let mySprite: Sprite = null
 let myCorg: Corgio = null
 let Music = 0
-game.splash("Level 1")
+game.splash("Level 1", "Dream desert")
 myCorg = corgio.create(SpriteKind.Player)
 scene.setBackgroundImage(img`
     3333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333
