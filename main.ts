@@ -63,7 +63,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.food3, function (sprite, otherSp
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Food4, function (sprite, otherSprite) {
     info.changeScoreBy(1)
     mySprite5.destroy()
-    game.over(true, effects.confetti)
+    scene.setBackgroundImage(assets.image`BOSS Seane`)
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.bomb, function (sprite, otherSprite) {
     animation.runImageAnimation(
@@ -73,11 +73,29 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.bomb, function (sprite, otherSpr
     false
     )
     mySprite4.follow(myEnemy)
+    mySprite6 = sprites.create(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `, SpriteKind.Player)
 })
 sprites.onOverlap(SpriteKind.bomb, SpriteKind.Enemy, function (sprite, otherSprite) {
     info.changeScoreBy(1)
-    mySprite4.destroy(effects.smiles, 500)
-    myEnemy.destroy(effects.smiles, 500)
+    mySprite4.destroy(effects.fire, 500)
+    myEnemy.destroy(effects.ashes, 500)
     pause(1000)
     effects.confetti.startScreenEffect(500)
     game.splash("Level 2", "The expansion")
@@ -104,6 +122,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
     game.over(false)
 })
 let mySprite2: Sprite = null
+let mySprite6: Sprite = null
 let mySprite5: Sprite = null
 let mySprite4: Sprite = null
 let myEnemy: Sprite = null
