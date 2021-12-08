@@ -60,10 +60,18 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.food3, function (sprite, otherSp
     )
     mySprite4.setPosition(134, 80)
 })
+// Boss Battle
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Food4, function (sprite, otherSprite) {
     info.changeScoreBy(1)
     mySprite5.destroy()
+    scene.setBackgroundImage(assets.image`Cloud land`)
+    game.splash("Level 3", "THE NIGHTMARE!")
+    myCorg.follow(false)
+    mySprite7 = sprites.create(assets.image`THE VISION BLOCKER Sleepy`, SpriteKind.Player)
+    mySprite7.sayText("ZZZ")
+    pause(5000)
     scene.setBackgroundImage(assets.image`BOSS Seane`)
+    mySprite7.setImage(assets.image`THE VISION BLOCKER Base`)
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.bomb, function (sprite, otherSprite) {
     animation.runImageAnimation(
@@ -123,6 +131,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
 })
 let mySprite2: Sprite = null
 let mySprite6: Sprite = null
+let mySprite7: Sprite = null
 let mySprite5: Sprite = null
 let mySprite4: Sprite = null
 let myEnemy: Sprite = null
